@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace StoreFront3._0.UI.MVC.Controllers
+namespace StoreFront.Controllers
 {
     public class HomeController : Controller
     {
@@ -26,5 +26,17 @@ namespace StoreFront3._0.UI.MVC.Controllers
 
             return View();
         }
+
+        public ActionResult Shop()
+        {
+            ViewBag.Message = "View our Wares!";
+
+            return View();
+        }
+
+
+
+
+
     }
 }

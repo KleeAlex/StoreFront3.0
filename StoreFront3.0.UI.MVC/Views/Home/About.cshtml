@@ -1,7 +1,44 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About US";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+@* TODO replace images, and update text for this page. *@
+
+<div class="hero-wrap hero-bread" style="background-color: rgb(237,132,50);">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs" style="text-align: center;"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home</a></span> </p>
+                <h1 class="mb-0 bread">About us</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center">
+                <a href="https://www.youtube.com/watch?v=sOsw-Au9JCo" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                    
+                    <span class="icon-play"><img src="~/Content/images/Dreamcastlogo.png" width="200" height="150" /></span>
+                </a>
+            </div>
+            <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                <div class="heading-section-bold mb-4 mt-md-5">
+                    <div class="ml-md-0">
+                        <h2 class="mb-4">Welcome to Dreamwares were it's all Dreamcast all the time.</h2>
+                    </div>
+                </div>
+                <div class="pb-md-5">
+                    <p>Here at Dreamwares we still hold strong and believe in the dream that was the Dreamcast. A console ahead of it's time... in all of the wrong ways... 
+                    But here at Dreamwares we hold strong that one day the dream will return for us all. </p>
+                    <p>But until that day comes we have all of your Dreaming needs. If there is anything we can do to help you achieve your Dreams feel free to
+                    @Html.ActionLink("Contact us", "Contact", "Home").</p>
+                    <p><a href="@Url.Action("Shop", "Home")" class="btn btn-primary">Shop now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
