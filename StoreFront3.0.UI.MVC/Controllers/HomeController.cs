@@ -34,7 +34,12 @@ namespace StoreFront.Controllers
             return View();
         }
 
+        public ActionResult SingleItem()
+        {
+            ViewBag.Message = "Well here it is!";
 
+            return View();
+        }
 
 
 
