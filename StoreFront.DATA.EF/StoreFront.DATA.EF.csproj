@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StoreFrontModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UserDetail.cs">
+      <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

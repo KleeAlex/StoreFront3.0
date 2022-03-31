@@ -17,6 +17,8 @@
         <AssociationConnector Association="DCAccessoriesModel.FK_Products_Manufacturers1" ManuallyRouted="false" />
         <AssociationConnector Association="DCAccessoriesModel.FK_Products_Shipping1" ManuallyRouted="false" />
         <AssociationConnector Association="DCAccessoriesModel.FK_Products_Stock1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DCAccessoriesModel.AspNetUser" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DCAccessoriesModel.UserDetail" Width="1.5" PointX="7.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

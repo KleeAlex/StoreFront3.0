@@ -25,10 +25,10 @@ namespace StoreFront3._0.UI.MVC.Models
         {
         }
 
-        //static ApplicationDbContext()
-        //{
-        //    Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
-        //}
+        static ApplicationDbContext()
+        {
+            Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
+        }
 
         public static ApplicationDbContext Create()
         {

@@ -657,10 +657,14 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\_OriginalLayout.cshtml" />
     <Content Include="Views\Home\SingleItem.cshtml" />
+    <Content Include="Views\UserAdmin\Create.cshtml" />
+    <Content Include="Views\UserAdmin\Delete.cshtml" />
+    <Content Include="Views\UserAdmin\Details.cshtml" />
+    <Content Include="Views\UserAdmin\Edit.cshtml" />
+    <Content Include="Views\UserAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UserAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
