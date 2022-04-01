@@ -37,6 +37,58 @@ namespace StoreFront3._0.UI.MVC.Controllers
             return View(product);
         }
 
+
+
+        #region 
+
+        public ActionResult AddToCart(int qty, int productID)
+        {
+            Dictionary<int, CartItemViewModel> shoppingCart = null;
+
+            if (Session["cart"] != null)
+            {
+                shoppingCart = (Dictionary<int, CartItemViewModel>)Session["cart"];
+            }
+            else
+            {
+                shoppingCart = new Dictionary<int, CartItemViewModel>();
+            }
+
+            Product product = db.Products.Where(p => p.ProductID == productID).FirstOrDefault();
+
+            if (product == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                CartItemViewModel item = new CartItemViewModel(qty, product);
+
+                if (shoppingCart.ContainsKey(product.ProductID))
+                {
+                    shoppingCart[product.ProductID].Qty += qty;
+                }
+                else
+                {
+                    shoppingCart.Add(product.ProductID, item);
+                }
+
+                //Now update the SESSION version of the cart so we can maintain that info between requests
+                Session["cart"] = shoppingCart; //No explicit casting needed here
+
+            }
+
+            //Send them to View their Cart Items
+            return RedirectToAction("Index", "ShoppingCart");
+
+        }
+
+        #endregion
+
+
+
+
+
         // GET: Products/Create
         public ActionResult Create()
         {
@@ -165,3 +217,4 @@ namespace StoreFront3._0.UI.MVC.Controllers
         }
     }
 }
+
