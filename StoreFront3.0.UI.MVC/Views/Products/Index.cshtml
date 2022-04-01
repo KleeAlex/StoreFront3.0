@@ -56,7 +56,8 @@
             @Html.DisplayFor(modelItem => item.UnitsSold)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ItemImage)
+            @*@Html.DisplayFor(modelItem => item.ItemImage)*@
+            <img src="~/Content/images/@item.ItemImage" alt="Item Image" title="@item.ProductName" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Category.CategoryName)
@@ -71,9 +72,9 @@
             @Html.DisplayFor(modelItem => item.Stock.StockStatus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
+            @Html.Action("Edit", "Edit", new { id=item.ProductID }) |
+            @Html.Action("Details", "Details", new { id=item.ProductID }) |
+            @Html.Action("Delete", "Delete", new { id=item.ProductID })
         </td>
     </tr>
 }

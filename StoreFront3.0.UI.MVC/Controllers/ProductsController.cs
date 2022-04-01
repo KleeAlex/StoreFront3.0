@@ -121,16 +121,25 @@ namespace StoreFront.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //    // POST: Products/Delete/5
+        //    [HttpPost, ActionName("Delete")]
+        //    [ValidateAntiForgeryToken]
+        //    public ActionResult DeleteConfirmed(int id)
+        //    {
+        //        Product product = db.Products.Find(id);
+        //        db.Products.Remove(product);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    protected override void Dispose(bool disposing)
+        //    {
+        //        if (disposing)
+        //        {
+        //            db.Dispose();
+        //        }
+        //        base.Dispose(disposing);
+        //    }
 
         protected override void Dispose(bool disposing)
         {
@@ -139,6 +148,19 @@ namespace StoreFront.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult AjaxDelete(int id)
+        {
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
+            db.SaveChanges();
+
+            string confirmMessage = string.Format("Deleted Product '{0}' from the database.", product.ProductName);
+            return Json(new { id = id, message = confirmMessage });
         }
     }
 }
