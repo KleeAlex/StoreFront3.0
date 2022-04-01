@@ -14,7 +14,7 @@
      *  - Use LINQ to find the matching UserDetail record for that ID
      */
 
-    DCAccessoriesEntities db = new DCAccessoriesEntities();
+    DCAccessoriesEntities1 db = new DCAccessoriesEntities1();
     string userID = User.Identity.GetUserId();
     UserDetail currentUser = db.UserDetails.Where(ud => ud.UserID == userID).FirstOrDefault();
     string userFN = "Guest"; //Default to something in case no match is found for the UserDetail object

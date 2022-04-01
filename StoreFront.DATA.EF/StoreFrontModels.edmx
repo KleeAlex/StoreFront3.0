@@ -4,109 +4,105 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="DCAccessoriesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+      <Schema Namespace="DCAccessoriesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetUsers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Nullable="false" MaxLength="128" Type="nvarchar" />
-          <Property Name="Email" MaxLength="256" Type="nvarchar" />
-          <Property Name="EmailConfirmed" Nullable="false" Type="bit" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
           <Property Name="PasswordHash" Type="nvarchar(max)" />
           <Property Name="SecurityStamp" Type="nvarchar(max)" />
           <Property Name="PhoneNumber" Type="nvarchar(max)" />
-          <Property Name="PhoneNumberConfirmed" Nullable="false" Type="bit" />
-          <Property Name="TwoFactorEnabled" Nullable="false" Type="bit" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
           <Property Name="LockoutEndDateUtc" Type="datetime" />
-          <Property Name="LockoutEnabled" Nullable="false" Type="bit" />
-          <Property Name="AccessFailedCount" Nullable="false" Type="int" />
-          <Property Name="UserName" Nullable="false" MaxLength="256" Type="nvarchar" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="CategoryID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="CategoryName" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="CategoryDiscount" MaxLength="50" Type="nvarchar" />
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryDiscount" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Departments">
           <Key>
             <PropertyRef Name="DepartmentID" />
           </Key>
-          <Property Name="DepartmentID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="DepartmentName" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Employees">
           <Key>
             <PropertyRef Name="EmployeeID" />
           </Key>
-          <Property Name="EmployeeID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="Position" Nullable="false" MaxLength="25" Type="varchar" />
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Position" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="DirectReportID" Type="int" />
-          <Property Name="FirstName" Nullable="false" MaxLength="20" Type="varchar" />
-          <Property Name="LastName" Nullable="false" MaxLength="20" Type="varchar" />
-          <Property Name="Email" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="HireDate" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HireDate" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Manufacturers">
           <Key>
             <PropertyRef Name="ManufacturerID" />
           </Key>
-          <Property Name="ManufacturerID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="ManufacturersName" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="CompanyStatus" Nullable="false" MaxLength="20" Type="varchar" />
-          <Property Name="City" MaxLength="20" Type="varchar" />
-          <Property Name="State" MaxLength="2" Type="char" />
-          <Property Name="ZipCode" MaxLength="5" Type="char" />
-          <Property Name="Country" MaxLength="25" Type="varchar" />
+          <Property Name="ManufacturerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ManufacturersName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyStatus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="State" Type="char" MaxLength="2" />
+          <Property Name="ZipCode" Type="char" MaxLength="5" />
+          <Property Name="Country" Type="varchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="ProductID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="ProductName" Nullable="false" MaxLength="100" Type="nvarchar" />
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Price" Type="money" />
           <Property Name="UnitsSold" Type="int" />
-          <Property Name="ItemImage" MaxLength="100" Type="varchar" />
-          <Property Name="CategoryID" Nullable="false" Type="int" />
-          <Property Name="StockID" Nullable="false" Type="int" />
-          <Property Name="ShippingID" Nullable="false" Type="int" />
-          <Property Name="ManufacturerID" Nullable="false" Type="int" />
+          <Property Name="ItemImage" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="StockID" Type="int" Nullable="false" />
+          <Property Name="ShippingID" Type="int" Nullable="false" />
+          <Property Name="ManufacturerID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Shipping">
           <Key>
             <PropertyRef Name="ShippingID" />
           </Key>
-          <Property Name="ShippingID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="ShippingStatus" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="ShippingDate" MaxLength="100" Type="nvarchar" />
+          <Property Name="ShippingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShippingStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShippingDate" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="StockID" />
           </Key>
-          <Property Name="StockID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="StockStatus" MaxLength="50" Type="nvarchar" />
+          <Property Name="StockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StockStatus" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="UserDetails">
           <Key>
             <PropertyRef Name="UserID" />
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="LastName" />
           </Key>
-          <Property Name="UserID" Nullable="false" MaxLength="128" Type="nvarchar" />
-          <Property Name="FirstName" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="LastName" Nullable="false" MaxLength="75" Type="varchar" />
-          <Property Name="FavoriteColor" MaxLength="7" Type="varchar" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="FavoriteColor" Type="varchar" MaxLength="7" />
         </EntityType>
         <Association Name="FK_Employees_Employees1">
-          <End Type="Self.Employees" Multiplicity="0..1" Role="Employees" />
-          <End Type="Self.Employees" Multiplicity="*" Role="Employees1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Employees1" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
               <PropertyRef Name="EmployeeID" />
@@ -117,8 +113,8 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Products_Categories1">
-          <End Type="Self.Categories" Multiplicity="1" Role="Categories" />
-          <End Type="Self.Products" Multiplicity="*" Role="Products" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories">
               <PropertyRef Name="CategoryID" />
@@ -129,8 +125,8 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Products_Manufacturers1">
-          <End Type="Self.Manufacturers" Multiplicity="1" Role="Manufacturers" />
-          <End Type="Self.Products" Multiplicity="*" Role="Products" />
+          <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Manufacturers">
               <PropertyRef Name="ManufacturerID" />
@@ -141,8 +137,8 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Products_Shipping1">
-          <End Type="Self.Shipping" Multiplicity="1" Role="Shipping" />
-          <End Type="Self.Products" Multiplicity="*" Role="Products" />
+          <End Role="Shipping" Type="Self.Shipping" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Shipping">
               <PropertyRef Name="ShippingID" />
@@ -153,8 +149,8 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Products_Stock1">
-          <End Type="Self.Stock" Multiplicity="1" Role="Stock" />
-          <End Type="Self.Products" Multiplicity="*" Role="Products" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Stock">
               <PropertyRef Name="StockID" />
@@ -173,39 +169,50 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shipping" EntityType="Self.Shipping" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserDetails" EntityType="Self.UserDetails" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [UserDetails].[UserID] AS [UserID], 
-    [UserDetails].[FirstName] AS [FirstName], 
-    [UserDetails].[LastName] AS [LastName], 
-    [UserDetails].[FavoriteColor] AS [FavoriteColor]
-    FROM [dbo].[UserDetails] AS [UserDetails]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Employees_Employees1" Association="Self.FK_Employees_Employees1">
-            <End EntitySet="Employees" Role="Employees" />
-            <End EntitySet="Employees" Role="Employees1" />
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees1" EntitySet="Employees" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_Categories1" Association="Self.FK_Products_Categories1">
-            <End EntitySet="Categories" Role="Categories" />
-            <End EntitySet="Products" Role="Products" />
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_Manufacturers1" Association="Self.FK_Products_Manufacturers1">
-            <End EntitySet="Manufacturers" Role="Manufacturers" />
-            <End EntitySet="Products" Role="Products" />
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_Shipping1" Association="Self.FK_Products_Shipping1">
-            <End EntitySet="Shipping" Role="Shipping" />
-            <End EntitySet="Products" Role="Products" />
+            <End Role="Shipping" EntitySet="Shipping" />
+            <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Products_Stock1" Association="Self.FK_Products_Stock1">
-            <End EntitySet="Stock" Role="Stock" />
-            <End EntitySet="Products" Role="Products" />
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="Products" EntitySet="Products" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DCAccessoriesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -285,6 +292,15 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
           <Property Name="StockStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Products_Stock1" FromRole="Stock" ToRole="Products" />
         </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FavoriteColor" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
         <Association Name="FK_Products_Categories1">
           <End Role="Categories" Type="Self.Category" Multiplicity="1" />
           <End Role="Products" Type="Self.Product" Multiplicity="*" />
@@ -345,7 +361,8 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DCAccessoriesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DCAccessoriesEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Departments" EntityType="Self.Department" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
@@ -353,6 +370,7 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="Shippings" EntityType="Self.Shipping" />
           <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="UserDetails" EntityType="Self.UserDetail" />
           <AssociationSet Name="FK_Products_Categories1" Association="Self.FK_Products_Categories1">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
@@ -373,43 +391,31 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
             <End Role="Stock" EntitySet="Stocks" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <EntitySet Name="AspNetUsers" EntityType="DCAccessoriesModel.AspNetUser" />
-          <EntitySet Name="UserDetails" EntityType="DCAccessoriesModel.UserDetail" />
         </EntityContainer>
-        <EntityType Name="AspNetUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="UserDetail">
-          <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="LastName" />
-          </Key>
-          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
-          <Property Name="FavoriteColor" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DCAccessoriesModelStoreContainer" CdmEntityContainer="DCAccessoriesEntities">
+        <EntityContainerMapping StorageEntityContainer="DCAccessoriesModelStoreContainer" CdmEntityContainer="DCAccessoriesEntities1">
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DCAccessoriesModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="DCAccessoriesModel.Category">
               <MappingFragment StoreEntitySet="Categories">
@@ -486,31 +492,13 @@ warning 6002: The table/view 'DCAccessories.dbo.UserDetails' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="DCAccessoriesModel.AspNetUser">
-              <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserDetails">
             <EntityTypeMapping TypeName="DCAccessoriesModel.UserDetail">
               <MappingFragment StoreEntitySet="UserDetails">
-                <ScalarProperty Name="FavoriteColor" ColumnName="FavoriteColor" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FavoriteColor" ColumnName="FavoriteColor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

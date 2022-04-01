@@ -7,12 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StoreFront.DATA.EF;
+using StoreFront3._0.UI.MVC.Models;
 
-namespace StoreFront.Controllers
+namespace StoreFront3._0.UI.MVC.Controllers
 {
     public class ProductsController : Controller
     {
-        private DCAccessoriesEntities db = new DCAccessoriesEntities();
+        private DCAccessoriesEntities1 db = new DCAccessoriesEntities1();
 
         // GET: Products
         public ActionResult Index()
@@ -159,7 +160,7 @@ namespace StoreFront.Controllers
             db.Products.Remove(product);
             db.SaveChanges();
 
-            string confirmMessage = string.Format("Deleted Product '{0}' from the database.", product.ProductName);
+            string confirmMessage = string.Format("Deleted Author '{0}' from the database.", product.ProductName);
             return Json(new { id = id, message = confirmMessage });
         }
     }

@@ -51,77 +51,75 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Department.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Manufacturer.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shipping.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Stock.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
     <Compile Include="StoreFrontMetadata\StoreFrontMetadata.cs" />
-    <Compile Include="StoreFrontModel.Context.cs">
+    <Compile Include="StoreFrontModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StoreFrontModel.Context.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="StoreFrontModel.cs">
+    <Compile Include="StoreFrontModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="StoreFrontModel.Designer.cs">
+    <Compile Include="StoreFrontModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StoreFrontModel.edmx</DependentUpon>
+      <DependentUpon>StoreFrontModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="UserDetail.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+      <DependentUpon>StoreFrontModels.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="StoreFrontModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StoreFrontModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="StoreFrontModel.edmx.diagram">
-      <DependentUpon>StoreFrontModel.edmx</DependentUpon>
+    <EntityDeploy Include="StoreFrontModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StoreFrontModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="StoreFrontModels.edmx.diagram">
+      <DependentUpon>StoreFrontModels.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StoreFrontModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>StoreFrontModel.Context.cs</LastGenOutput>
-      <DependentUpon>StoreFrontModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="StoreFrontModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StoreFrontModel.edmx</DependentUpon>
-      <LastGenOutput>StoreFrontModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="StoreFrontModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoreFrontModels.edmx</DependentUpon>
+      <LastGenOutput>StoreFrontModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="StoreFrontModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoreFrontModels.edmx</DependentUpon>
+      <LastGenOutput>StoreFrontModels.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

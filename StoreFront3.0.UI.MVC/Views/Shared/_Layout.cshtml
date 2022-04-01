@@ -38,7 +38,7 @@
                     <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link">Home</a></li>
                     <li class="nav-item">
                         <a href="@Url.Action("Shop", "Home")" class="nav-link">Shop</a>
-                    </li>                   
+                    </li>
                     <li class="nav-item"><a href="@Url.Action("About", "Home")" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="@Url.Action("Contact", "Home")" class="nav-link">Contact</a></li>
                     <li class="nav-item dropdown">
@@ -151,6 +151,14 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+
+    <!-- Added jQueryUI CDN -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Added jQuery AJAX CDN -->
+    <script src="https://cdn.jsdelivr.net/jquery.ajax.unobtrusive/3.2.4/jquery.unobtrusive-ajax.min.js"></script>
+
     @RenderSection("scripts", required: false)
 
 

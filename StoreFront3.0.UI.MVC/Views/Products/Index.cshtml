@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<StoreFront.DATA.EF.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Products";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -72,11 +72,39 @@
             @Html.DisplayFor(modelItem => item.Stock.StockStatus)
         </td>
         <td>
-            @Html.Action("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.Action("Details", "Details", new { id=item.ProductID }) |
-            @Html.Action("Delete", "Delete", new { id=item.ProductID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductID}) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProductID}) |
+            @Ajax.ActionLink("Delete", "AjaxDelete", "Products", new { id = item.ProductID},
+                new AjaxOptions
+                {
+                    HttpMethod = "Post",
+                    Confirm = $"Do you really want to delete {item.ProductName} from Products?",
+                    OnSuccess = "deleteConfirmed",
+                    OnFailure = "deleteFailed"
+                }
+
+           )
         </td>
     </tr>
 }
 
 </table>
+
+
+@section scripts {
+    <script>
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#Product-" + response.id;
+            $("#ProductsTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success'>" + response.message + "</div>");
+        }
+
+        function deleteFailed(response, status, data) {
+            $("MessageContent").html("<div class='alert alert-danger'> Delete unsuccessful. </div> ");
+        }
+    </script>
+    
+    
+    }

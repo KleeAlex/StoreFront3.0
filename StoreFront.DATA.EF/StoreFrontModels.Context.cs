@@ -13,10 +13,10 @@ namespace StoreFront.DATA.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DCAccessoriesEntities : DbContext
+    public partial class DCAccessoriesEntities1 : DbContext
     {
-        public DCAccessoriesEntities()
-            : base("name=DCAccessoriesEntities")
+        public DCAccessoriesEntities1()
+            : base("name=DCAccessoriesEntities1")
         {
         }
     
@@ -25,6 +25,7 @@ namespace StoreFront.DATA.EF
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
@@ -32,7 +33,6 @@ namespace StoreFront.DATA.EF
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Shipping> Shippings { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
     }
 }
