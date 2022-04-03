@@ -34,13 +34,17 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitsSold)
-        </dt>
+        @if (User.IsInRole("Admin"))
+        {
 
-        <dd>
-            @Html.DisplayFor(model => model.UnitsSold)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UnitsSold)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnitsSold)
+            </dd>
+        }
 
         <dt>
             @Html.DisplayNameFor(model => model.ItemImage)
@@ -66,13 +70,18 @@
             @Html.DisplayFor(model => model.Manufacturer.ManufacturersName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Shipping.ShippingStatus)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Shipping.ShippingStatus)
-        </dd>
+        @if (User.IsInRole("Admin"))
+        {
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Shipping.ShippingStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Shipping.ShippingStatus)
+            </dd>
+        }
 
         <dt>
             @Html.DisplayNameFor(model => model.Stock.StockStatus)
@@ -84,10 +93,23 @@
 
     </dl>
 
- 
+    <p>
+        @using (Html.BeginForm("AddToCart", "Products", new { @productID = Model.ProductID }, FormMethod.Post, new { @class = "text-center" }))
+        {
+            @Html.HiddenFor(x => x.ProductID)
+            <span class="label" style="color: #000;">Quantity: </span>
+            @Html.TextBox("Qty", 1, new { @class = "form-control", @style = "max-width: 50px; display: inline;" })
+            <input type="submit" value="Add to Cart" class="btn btn-primary" name="qty" />
+        }
+    </p>
+
+
 
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -53,7 +53,32 @@
                     {
                         <li class="nav-item"><a href="@Url.Action("Index", "Products")" class="nav-link">Products</a></li>
                     }
-                    <li class="nav-item cta cta-colored"><a href="@Url.Action("Index", "ShoppingCart")" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                    <li class="nav-item cta cta-colored" style="color: white">
+                        @{
+                            Dictionary<int, StoreFront3._0.UI.MVC.Models.CartItemViewModel> products =
+                                (Dictionary<int, StoreFront3._0.UI.MVC.Models.CartItemViewModel>)Session["cart"];
+                        }
+
+                        @if (Session["cart"] != null && ((Dictionary<int, StoreFront3._0.UI.MVC.Models.CartItemViewModel>)Session["cart"]).Count > 0)
+                        {
+                            var productCount = products.Sum(p => p.Value.Qty);
+
+                            <a class="dropdown-item"  style="color: white" href="@Url.Action("Index", "ShoppingCart")">
+                                <i class="icon-shopping-cart"></i>
+                                    @productCount
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="dropdown-item" style="color: white" href="@Url.Action("Index", "ShoppingCart")">
+                                <i class="icon-shopping-cart"></i>
+                                    
+                            </a>
+                           
+                        }
+                    </li>
+
+                    @*<li class="nav-item cta cta-colored"><a href="@Url.Action("Index", "ShoppingCart")" class="nav-link"><span class="icon-shopping_cart"></span></li>*@
                 </ul>
             </div>
         </div>
