@@ -6,11 +6,15 @@
 
 <h2>@ViewBag.Title</h2>
 
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemImage)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
@@ -20,29 +24,37 @@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UnitsSold)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemImage)
-        </th>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsSold)
+            </th>
+        }
         <th>
             @Html.DisplayNameFor(model => model.Category.CategoryName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Manufacturer.ManufacturersName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Shipping.ShippingStatus)
-        </th>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Shipping.ShippingStatus)
+            </th>
+        }
         <th>
             @Html.DisplayNameFor(model => model.Stock.StockStatus)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.ItemImage)*@
+            <img src="~/Content/images/@item.ItemImage" alt="Item Image" title="@item.ProductName" style="width:320px; height: 320px" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
@@ -52,41 +64,47 @@
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnitsSold)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.ItemImage)*@
-            <img src="~/Content/images/@item.ItemImage" alt="Item Image" title="@item.ProductName" />
-        </td>
+        @if (User.IsInRole("Admin"))
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsSold)
+            </td>
+        }
         <td>
             @Html.DisplayFor(modelItem => item.Category.CategoryName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Manufacturer.ManufacturersName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Shipping.ShippingStatus)
-        </td>
+        @if (User.IsInRole("Admin"))
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Shipping.ShippingStatus)
+            </td>
+        }
         <td>
             @Html.DisplayFor(modelItem => item.Stock.StockStatus)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ProductID}) |
-            @Html.ActionLink("Details", "Details", new { id = item.ProductID}) |
-            @Ajax.ActionLink("Delete", "AjaxDelete", "Products", new { id = item.ProductID},
-                new AjaxOptions
-                {
-                    HttpMethod = "Post",
-                    Confirm = $"Do you really want to delete {item.ProductName} from Products?",
-                    OnSuccess = "deleteConfirmed",
-                    OnFailure = "deleteFailed"
-                }
+        @if (User.IsInRole("Admin"))
+        {
 
-           )
-        </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                @Ajax.ActionLink("Delete", "AjaxDelete", "Products", new { id = item.ProductID},
+                    new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        Confirm = $"Do you really want to delete {item.ProductName} from Products?",
+                        OnSuccess = "deleteConfirmed",
+                        OnFailure = "deleteFailed"
+                    }
+
+               )
+            </td>
+        }
     </tr>
-}
+    }
 
 </table>
 
@@ -105,6 +123,6 @@
             $("MessageContent").html("<div class='alert alert-danger'> Delete unsuccessful. </div> ");
         }
     </script>
-    
-    
-    }
+
+
+}

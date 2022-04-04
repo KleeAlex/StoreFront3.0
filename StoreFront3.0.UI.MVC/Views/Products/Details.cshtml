@@ -1,10 +1,14 @@
 ﻿@model StoreFront.DATA.EF.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.ProductName;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
+
+<div style="float:left; margin-right:10em">
+    <img src="~/Content/images/@Model.ItemImage" alt="Item Image" title="@Model.ProductName" style="width:750px; height:750px" />
+</div>
 
 <div>
     <h4>Product</h4>
@@ -50,9 +54,7 @@
             @Html.DisplayNameFor(model => model.ItemImage)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ItemImage)
-        </dd>
+      
 
         <dt>
             @Html.DisplayNameFor(model => model.Category.CategoryName)
@@ -106,6 +108,8 @@
 
 
 </div>
+
+
 @if (User.IsInRole("Admin"))
 {
     <p>
@@ -113,3 +117,6 @@
         @Html.ActionLink("Back to List", "Index")
     </p>
 }
+
+<br/>
+<br/>
