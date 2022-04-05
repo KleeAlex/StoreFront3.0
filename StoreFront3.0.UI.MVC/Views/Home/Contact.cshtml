@@ -1,22 +1,22 @@
-﻿@{
+﻿@model StoreFront3._0.UI.MVC.Models.ContactViewModel
+
+
+@{
     ViewBag.Title = "Contact";
 }
 
 
 
-<section id="home-section" class="hero">
-
-    <div  class="hero-wrap hero-bread" style="background-color: rgb(237,132,50);">
-        <div class="container">
-            <div class="col-md-12 ftco-animate text-center">
-                <h1 class="mb-2"></h1>
-                <h2 class="subheading mb-4"></h2>
+<div class="hero-wrap hero-bread" style="background-color: rgb(237,132,50);">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs" style="text-align: center;"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home</a></span> </p>
+                <h1 class="mb-0 bread">Contact us</h1>
             </div>
         </div>
     </div>
-
-
-</section>
+</div>
 
 <section class="ftco-section contact-section bg-light">
     <div class="container text-center">
@@ -43,7 +43,46 @@
                 </div>
             </div>
         </div>
-        @*<div class="row block-9">*@
+
+        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal bg-white p-5 contact-form">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                </div>
+            </div>
+        }
+
+
+
+        @*<div class="row block-9">
             <div class="col-md-6 order-md-last d-flex">
                 <form action="#" class="bg-white p-5 contact-form">
                     <div class="form-group">
@@ -64,9 +103,6 @@
                 </form>
 
             </div>
-            @*<div class="col-md-6 d-flex">
-                <div id="map" class="bg-white"></div>
-            </div>*@
-        @*</div>*@
+        </div>*@
     </div>
 </section>

@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home</a></span> <span>Products</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home</a></span></p>
                 <h1 class="mb-0 bread">Products</h1>
             </div>
         </div>
@@ -21,16 +21,16 @@
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
                 <ul class="product-category">
-                    <li><a href="#" class="active">All</a></li>
-                    <li><a href="#">Controllers</a></li>
+                    <li><a href="@Url.Action("Shop", "Home")" class="active">All</a></li>
+                    @*<li><a href="#">Controllers</a></li>
                     <li><a href="#">Arcade Sticks</a></li>
                     <li><a href="#">Adapters</a></li>
-                    <li><a href="#">Accessories/Memory Cards</a></li>
+                    <li><a href="#">Accessories/Memory Cards</a></li>*@
                 </ul>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="col-md-6 col-lg-3 ftco-animate " new {CategoryID = 1}>
                 <div class="product">
                     <a href="@Url.Action("Details", "Products", new { id = 1 })" class="img-prod">
                         <img class="img-fluid" src="~/Content/images/DC_Controller.png" alt="Colorlib Template">
